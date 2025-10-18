@@ -12,10 +12,10 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ onQuickView, onAddToWishlist 
   const products = mockProducts.filter(p => p.isNew && p.category !== 'men' && p.category !== 'kids');
 
   return (
-    <main className="bg-zara-off-white">
+    <main className="bg-dark-bg">
       <div className="max-w-[1280px] mx-auto px-6">
-        <h1 className="text-3xl font-bold mt-10 mb-2 text-zara-near-black">New Arrivals</h1>
-        <p className="text-zara-charcoal mb-8">Fresh pieces that move with every version of you.</p>
+        <h1 className="text-3xl font-bold mt-10 mb-2 text-dark-text">New Arrivals</h1>
+        <p className="text-dark-text-secondary mb-8">Fresh pieces that move with every version of you.</p>
       </div>
       <ProductGrid
         products={products}

@@ -18,14 +18,14 @@ const ProductGrid: React.FC<ProductGridProps> = ({
   onAddToWishlist 
 }) => {
   return (
-    <section className="py-16 bg-zara-white">
+    <section className="py-16 bg-dark-bg">
       <div className="max-w-[1280px] mx-auto px-6">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-zara-near-black">{title}</h2>
+          <h2 className="text-3xl font-bold text-dark-text">{title}</h2>
           {viewAllLink && (
             <a
               href={viewAllLink}
-              className="text-sm font-medium border-b border-zara-near-black hover:border-zara-charcoal transition-colors duration-200 text-zara-near-black"
+              className="text-sm font-medium border-b border-dark-text hover:border-dark-text-secondary transition-colors duration-200 text-dark-text"
             >
               View All
             </a>

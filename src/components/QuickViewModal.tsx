@@ -37,16 +37,16 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-zara-near-black bg-opacity-50 z-50"
+        className="fixed inset-0 bg-black bg-opacity-70 z-50"
         onClick={onClose}
       />
       
       {/* Modal */}
       <div className="fixed inset-0 z-50 overflow-y-auto">
         <div className="flex min-h-full items-center justify-center p-4">
-          <div className="bg-zara-white max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-dark-bg-elevated max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-dark-border">
             <div className="flex justify-end p-4">
-              <button onClick={onClose} className="p-2 hover:bg-zara-light-gray rounded-full text-zara-near-black">
+              <button onClick={onClose} className="p-2 hover:bg-dark-bg-hover rounded-full text-dark-text">
                 <X size={20} />
               </button>
             </div>
@@ -69,7 +69,7 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({
                         key={index}
                         onClick={() => setCurrentImage(index)}
                         className={`w-16 h-16 overflow-hidden ${
-                          currentImage === index ? 'ring-2 ring-zara-near-black' : ''
+                          currentImage === index ? 'ring-2 ring-dark-text' : ''
                         }`}
                       >
                         <img
@@ -86,16 +86,16 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({
               {/* Product Details */}
               <div className="space-y-6">
                 <div>
-                  <h1 className="text-2xl font-bold mb-2 text-zara-near-black">{product.title}</h1>
+                  <h1 className="text-2xl font-bold mb-2 text-dark-text">{product.title}</h1>
                   {product.subtitle && (
-                    <p className="text-zara-charcoal mb-4">{product.subtitle}</p>
+                    <p className="text-dark-text-secondary mb-4">{product.subtitle}</p>
                   )}
                   <div className="flex items-center space-x-2 mb-4">
-                    <span className="text-2xl font-bold text-zara-near-black">
+                    <span className="text-2xl font-bold text-dark-text">
                       ${product.price.current}
                     </span>
                     {product.price.original && (
-                      <span className="text-lg text-zara-charcoal line-through">
+                      <span className="text-lg text-dark-text-muted line-through">
                         ${product.price.original}
                       </span>
                     )}
@@ -110,14 +110,14 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({
                             className={`text-sm ${
                               i < Math.floor(product.rating!.average) 
                                 ? 'text-yellow-400' 
-                                : 'text-zara-gray'
+                                : 'text-dark-border-light'
                             }`}
                           >
                             ★
                           </span>
                         ))}
                       </div>
-                      <span className="text-sm text-zara-charcoal">
+                      <span className="text-sm text-dark-text-secondary">
                         {product.rating.average} ({product.rating.count} reviews)
                       </span>
                     </div>
@@ -126,7 +126,7 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
                 {/* Color Selection */}
                 <div>
-                  <h3 className="font-medium mb-3 text-zara-near-black">Color</h3>
+                  <h3 className="font-medium mb-3 text-dark-text">Color</h3>
                   <div className="flex space-x-2">
                     {product.colors.map((color) => (
                       <button
@@ -134,8 +134,8 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({
                         onClick={() => setSelectedColor(color)}
                         className={`w-8 h-8 rounded-full border-2 ${
                           selectedColor === color 
-                            ? 'border-zara-near-black' 
-                            : 'border-zara-gray'
+                            ? 'border-dark-text' 
+                            : 'border-dark-border-light'
                         } ${
                           color === 'black' ? 'bg-gray-900' :
                           color === 'white' ? 'bg-white' :
@@ -158,7 +158,7 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
                 {/* Size Selection */}
                 <div>
-                  <h3 className="font-medium mb-3 text-zara-near-black">Size</h3>
+                  <h3 className="font-medium mb-3 text-dark-text">Size</h3>
                   <div className="grid grid-cols-4 gap-2">
                     {product.sizes.map((size) => (
                       <button
@@ -166,8 +166,8 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({
                         onClick={() => setSelectedSize(size)}
                         className={`py-2 text-sm font-medium border ${
                           selectedSize === size 
-                            ? 'border-zara-near-black bg-zara-near-black text-zara-white' 
-                            : 'border-zara-gray hover:border-zara-charcoal text-zara-near-black'
+                            ? 'border-dark-text bg-dark-text text-dark-bg' 
+                            : 'border-dark-border-light hover:border-dark-text-secondary text-dark-text'
                         }`}
                       >
                         {size}
@@ -178,18 +178,18 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({
 
                 {/* Quantity */}
                 <div>
-                  <h3 className="font-medium mb-3 text-zara-near-black">Quantity</h3>
+                  <h3 className="font-medium mb-3 text-dark-text">Quantity</h3>
                   <div className="flex items-center space-x-3">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="p-2 border border-zara-gray hover:bg-zara-light-gray text-zara-near-black"
+                      className="p-2 border border-dark-border-light hover:bg-dark-bg-hover text-dark-text"
                     >
                       <Minus size={16} />
                     </button>
-                    <span className="w-12 text-center font-medium text-zara-near-black">{quantity}</span>
+                    <span className="w-12 text-center font-medium text-dark-text">{quantity}</span>
                     <button
                       onClick={() => setQuantity(Math.min(10, quantity + 1))}
-                      className="p-2 border border-zara-gray hover:bg-zara-light-gray text-zara-near-black"
+                      className="p-2 border border-dark-border-light hover:bg-dark-bg-hover text-dark-text"
                     >
                       <Plus size={16} />
                     </button>
@@ -201,11 +201,11 @@ const QuickViewModal: React.FC<QuickViewModalProps> = ({
                   <button
                     onClick={handleAddToCart}
                     disabled={!selectedSize || !selectedColor}
-                    className="flex-1 bg-zara-near-black text-zara-white py-3 font-semibold disabled:bg-zara-gray disabled:cursor-not-allowed hover:bg-zara-deep-gray transition-colors duration-200"
+                    className="flex-1 bg-dark-text text-dark-bg py-3 font-semibold disabled:bg-dark-border disabled:cursor-not-allowed hover:bg-dark-text-secondary transition-colors duration-200"
                   >
                     Add to Bag
                   </button>
-                  <button className="p-3 border border-zara-gray hover:bg-zara-light-gray text-zara-near-black">
+                  <button className="p-3 border border-dark-border-light hover:bg-dark-bg-hover text-dark-text">
                     <Heart size={20} />
                   </button>
                 </div>

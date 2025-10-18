@@ -98,7 +98,7 @@ function App() {
     .slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-zara-off-white">
+    <div className="min-h-screen bg-dark-bg">
       <Header 
         cartCount={totalCartItems}
         onSearchToggle={() => setIsSearchOpen(true)}

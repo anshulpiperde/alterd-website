@@ -25,19 +25,19 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-zara-light-gray border-t border-zara-medium-gray" role="contentinfo">
+    <footer className="bg-dark-bg-secondary border-t border-dark-border" role="contentinfo">
       <div className="max-w-[1280px] mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Footer Sections */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="font-semibold text-zara-near-black mb-4">{section.title}</h3>
+              <h3 className="font-semibold text-dark-text mb-4">{section.title}</h3>
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link}>
                     <a 
                       href="#" 
-                      className="text-sm text-zara-charcoal hover:text-zara-near-black transition-colors duration-200"
+                      className="text-sm text-dark-text-secondary hover:text-dark-text transition-colors duration-200"
                     >
                       {link}
                     </a>
@@ -49,32 +49,32 @@ const Footer: React.FC = () => {
 
           {/* Newsletter & Social */}
           <div>
-            <h3 className="font-semibold text-zara-near-black mb-4">Stay Updated</h3>
-            <p className="text-sm text-zara-charcoal mb-4">
+            <h3 className="font-semibold text-dark-text mb-4">Stay Updated</h3>
+            <p className="text-sm text-dark-text-secondary mb-4">
               Subscribe to get the latest news and exclusive offers.
             </p>
             <form className="space-y-3">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full px-4 py-2 border border-zara-gray bg-zara-white focus:outline-none focus:ring-1 focus:ring-zara-near-black focus:border-transparent"
+                className="w-full px-4 py-2 border border-dark-border-light bg-dark-bg-elevated text-dark-text placeholder:text-dark-text-muted focus:outline-none focus:ring-1 focus:ring-dark-text focus:border-transparent"
               />
               <button
                 type="submit"
-                className="w-full bg-zara-near-black text-zara-white py-2 font-medium hover:bg-zara-deep-gray transition-colors duration-200"
+                className="w-full bg-dark-text text-dark-bg py-2 font-medium hover:bg-dark-text-secondary transition-colors duration-200"
               >
                 Subscribe
               </button>
             </form>
             
             <div className="mt-6">
-              <h4 className="font-medium text-zara-near-black mb-3">Follow Us</h4>
+              <h4 className="font-medium text-dark-text mb-3">Follow Us</h4>
               <div className="flex space-x-4">
                 {socialLinks.map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
                     href={href}
-                    className="text-zara-charcoal hover:text-zara-near-black transition-colors duration-200"
+                    className="text-dark-text-secondary hover:text-dark-text transition-colors duration-200"
                     aria-label={label}
                   >
                     <Icon size={20} />
@@ -86,20 +86,20 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-zara-medium-gray mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-zara-charcoal">
+        <div className="border-t border-dark-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-dark-text-secondary">
             © {new Date().getFullYear()} Alterd — All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <span className="text-sm text-zara-charcoal">Payment Methods:</span>
+            <span className="text-sm text-dark-text-secondary">Payment Methods:</span>
             <div className="flex space-x-2">
-              <div className="w-8 h-5 bg-zara-gray text-xs flex items-center justify-center font-bold text-zara-near-black">
+              <div className="w-8 h-5 bg-dark-bg-elevated border border-dark-border-light text-xs flex items-center justify-center font-bold text-dark-text">
                 VISA
               </div>
-              <div className="w-8 h-5 bg-zara-gray text-xs flex items-center justify-center font-bold text-zara-near-black">
+              <div className="w-8 h-5 bg-dark-bg-elevated border border-dark-border-light text-xs flex items-center justify-center font-bold text-dark-text">
                 MC
               </div>
-              <div className="w-8 h-5 bg-zara-gray text-xs flex items-center justify-center font-bold text-zara-near-black">
+              <div className="w-8 h-5 bg-dark-bg-elevated border border-dark-border-light text-xs flex items-center justify-center font-bold text-dark-text">
                 AE
               </div>
             </div>

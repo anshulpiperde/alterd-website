@@ -2,11 +2,11 @@ import React from 'react';
 
 const About: React.FC = () => {
   return (
-    <main className="bg-zara-white">
-      <section className="py-16 border-b border-zara-medium-gray">
+    <main className="bg-dark-bg">
+      <section className="py-16 border-b border-dark-border">
         <div className="max-w-[960px] mx-auto px-6">
-          <h1 className="text-4xl font-bold tracking-tight mb-6 text-zara-near-black">About Us</h1>
-          <div className="space-y-6 text-zara-charcoal leading-relaxed">
+          <h1 className="text-4xl font-bold tracking-tight mb-6 text-dark-text">About Us</h1>
+          <div className="space-y-6 text-dark-text-secondary leading-relaxed">
             <p>
               Alterd is not just a fashion label — it is a philosophy of identity. Born from the belief that every
               woman holds multitudes within her, Alterd is an ode to the alter ego — that hidden, unapologetic side that
@@ -28,18 +28,18 @@ const About: React.FC = () => {
               With every Alterd creation, she steps closer to the woman she already is, and the woman the world has yet
               to meet.
             </p>
-            <p className="font-medium text-zara-near-black">
+            <p className="font-bold italic text-dark-text">
               Because a woman is never just one. She is infinite.
             </p>
-            <p className="font-semibold tracking-wide text-zara-near-black">Alterd. For every self you own.</p>
+            <p className="font-semibold tracking-wide text-dark-text">Alterd. For every self you own.</p>
           </div>
         </div>
       </section>
 
       <section className="py-16">
         <div className="max-w-[960px] mx-auto px-6">
-          <h2 className="text-3xl font-bold tracking-tight mb-6 text-zara-near-black">Brand Story</h2>
-          <div className="space-y-6 text-zara-charcoal leading-relaxed">
+          <h2 className="text-3xl font-bold tracking-tight mb-6 text-dark-text">Brand Story</h2>
+          <div className="space-y-6 text-dark-text-secondary leading-relaxed">
             <p>
               Every woman carries an alter ego. The side she shows the world, and the side she saves for herself. The
               dreamer. The rebel. The lover. The leader. She is never just one — she is many.
@@ -61,7 +61,7 @@ const About: React.FC = () => {
               Alterd is the story of duality, desire, and transformation. A brand for women who choose not between
               selves, but embrace them all.
             </p>
-            <p className="font-medium text-zara-near-black">Because she is not one. She is infinite.</p>
+            <p className="font-bold italic text-dark-text">Because she is not one. She is infinite.</p>
           </div>
         </div>
       </section>

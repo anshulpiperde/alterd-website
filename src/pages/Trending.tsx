@@ -15,10 +15,10 @@ const Trending: React.FC<TrendingProps> = ({ onQuickView, onAddToWishlist }) => 
     .slice(0, 8);
 
   return (
-    <main className="bg-zara-off-white">
+    <main className="bg-dark-bg">
       <div className="max-w-[1280px] mx-auto px-6">
-        <h1 className="text-3xl font-bold mt-10 mb-2 text-zara-near-black">Trending</h1>
-        <p className="text-zara-charcoal mb-8">Most-loved styles that command attention.</p>
+        <h1 className="text-3xl font-bold mt-10 mb-2 text-dark-text">Trending</h1>
+        <p className="text-dark-text-secondary mb-8">Most-loved styles that command attention.</p>
       </div>
       <ProductGrid
         products={products}

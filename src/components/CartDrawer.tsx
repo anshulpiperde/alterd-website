@@ -25,17 +25,17 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-zara-near-black bg-opacity-50 z-40"
+        className="fixed inset-0 bg-black bg-opacity-70 z-40"
         onClick={onClose}
       />
       
       {/* Drawer */}
-      <div className="fixed right-0 top-0 h-full w-96 bg-zara-white z-50 shadow-2xl transform transition-transform duration-300">
+      <div className="fixed right-0 top-0 h-full w-96 bg-dark-bg-elevated z-50 shadow-2xl transform transition-transform duration-300 border-l border-dark-border">
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-zara-medium-gray">
-            <h2 className="text-lg font-semibold text-zara-near-black">Shopping Bag ({items.length})</h2>
-            <button onClick={onClose} className="p-2 hover:bg-zara-light-gray rounded-full text-zara-near-black">
+          <div className="flex items-center justify-between p-6 border-b border-dark-border">
+            <h2 className="text-lg font-semibold text-dark-text">Shopping Bag ({items.length})</h2>
+            <button onClick={onClose} className="p-2 hover:bg-dark-bg-hover rounded-full text-dark-text">
               <X size={20} />
             </button>
           </div>
@@ -44,10 +44,10 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
           <div className="flex-1 overflow-y-auto p-6">
             {items.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-zara-charcoal">Your bag is empty</p>
+                <p className="text-dark-text-secondary">Your bag is empty</p>
                 <button 
                   onClick={onClose}
-                  className="mt-4 text-sm font-medium border-b border-zara-near-black hover:border-zara-charcoal transition-colors duration-200 text-zara-near-black"
+                  className="mt-4 text-sm font-medium border-b border-dark-text hover:border-dark-text-secondary transition-colors duration-200 text-dark-text"
                 >
                   Continue Shopping
                 </button>
@@ -62,11 +62,11 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
                       className="w-20 h-20 object-cover rounded"
                     />
                     <div className="flex-1">
-                      <h3 className="font-medium text-sm text-zara-near-black">{item.product.title}</h3>
-                      <p className="text-xs text-zara-charcoal mt-1">
+                      <h3 className="font-medium text-sm text-dark-text">{item.product.title}</h3>
+                      <p className="text-xs text-dark-text-secondary mt-1">
                         Size: {item.size} | Color: {item.color}
                       </p>
-                      <p className="font-semibold text-sm mt-2 text-zara-near-black">
+                      <p className="font-semibold text-sm mt-2 text-dark-text">
                         ${item.product.price.current}
                       </p>
                       
@@ -74,14 +74,14 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
                         <div className="flex items-center space-x-2">
                           <button
                             onClick={() => onUpdateQuantity(item.id, Math.max(0, item.quantity - 1))}
-                            className="p-1 hover:bg-zara-light-gray rounded text-zara-near-black"
+                            className="p-1 hover:bg-dark-bg-hover rounded text-dark-text"
                           >
                             <Minus size={14} />
                           </button>
-                          <span className="text-sm w-8 text-center text-zara-near-black">{item.quantity}</span>
+                          <span className="text-sm w-8 text-center text-dark-text">{item.quantity}</span>
                           <button
                             onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-                            className="p-1 hover:bg-zara-light-gray rounded text-zara-near-black"
+                            className="p-1 hover:bg-dark-bg-hover rounded text-dark-text"
                           >
                             <Plus size={14} />
                           </button>
@@ -89,7 +89,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
                         
                         <button
                           onClick={() => onRemoveItem(item.id)}
-                          className="p-1 text-zara-dark-gray hover:text-zara-near-black transition-colors"
+                          className="p-1 text-dark-text-muted hover:text-dark-text transition-colors"
                         >
                           <Trash2 size={14} />
                         </button>
@@ -103,24 +103,24 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
 
           {/* Footer */}
           {items.length > 0 && (
-            <div className="border-t border-zara-medium-gray p-6 space-y-4">
+            <div className="border-t border-dark-border p-6 space-y-4">
               <div className="flex justify-between items-center">
-                <span className="font-semibold text-zara-near-black">Subtotal</span>
-                <span className="font-bold text-lg text-zara-near-black">${subtotal.toFixed(2)}</span>
+                <span className="font-semibold text-dark-text">Subtotal</span>
+                <span className="font-bold text-lg text-dark-text">${subtotal.toFixed(2)}</span>
               </div>
-              <button className="w-full bg-zara-near-black text-zara-white py-3 font-semibold hover:bg-zara-deep-gray transition-colors duration-200">
+              <button className="w-full bg-dark-text text-dark-bg py-3 font-semibold hover:bg-dark-text-secondary transition-colors duration-200">
                 Checkout
               </button>
               <a
                 href="#/cart"
                 onClick={onClose}
-                className="block w-full text-center border border-zara-gray py-3 font-medium hover:bg-zara-light-gray transition-colors duration-200 text-zara-near-black"
+                className="block w-full text-center border border-dark-border-light py-3 font-medium hover:bg-dark-bg-hover transition-colors duration-200 text-dark-text"
               >
                 View Cart
               </a>
               <button 
                 onClick={onClose}
-                className="w-full border border-zara-gray py-3 font-medium hover:bg-zara-light-gray transition-colors duration-200 text-zara-near-black"
+                className="w-full border border-dark-border-light py-3 font-medium hover:bg-dark-bg-hover transition-colors duration-200 text-dark-text"
               >
                 Continue Shopping
               </button>

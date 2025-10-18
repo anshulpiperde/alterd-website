@@ -80,7 +80,7 @@ const HeroBanner: React.FC = () => {
             alt={slide.headline}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-zara-near-black bg-opacity-30" />
+          <div className="absolute inset-0 bg-black bg-opacity-40" />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white max-w-2xl px-6">
               <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
@@ -91,7 +91,7 @@ const HeroBanner: React.FC = () => {
               </p>
               <a
                 href={slide.ctaLink}
-                className="inline-block bg-zara-white text-zara-near-black px-8 py-3 text-lg font-semibold hover:bg-zara-light-gray transition-colors duration-300"
+                className="inline-block bg-dark-text text-dark-bg px-8 py-3 text-lg font-semibold hover:bg-dark-text-secondary transition-colors duration-300"
               >
                 {slide.ctaText}
               </a>
@@ -103,7 +103,7 @@ const HeroBanner: React.FC = () => {
       {/* Navigation Arrows */}
       <button
         onClick={goToPrevious}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-zara-white bg-opacity-10 hover:bg-opacity-20 text-zara-white p-2 rounded-full transition-all duration-300"
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-10 hover:bg-opacity-20 text-white p-2 rounded-full transition-all duration-300"
         aria-label="Previous slide"
       >
         <ChevronLeft size={24} />
@@ -111,7 +111,7 @@ const HeroBanner: React.FC = () => {
 
       <button
         onClick={goToNext}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-zara-white bg-opacity-10 hover:bg-opacity-20 text-zara-white p-2 rounded-full transition-all duration-300"
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-10 hover:bg-opacity-20 text-white p-2 rounded-full transition-all duration-300"
         aria-label="Next slide"
       >
         <ChevronRight size={24} />
@@ -124,7 +124,7 @@ const HeroBanner: React.FC = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-zara-white' : 'bg-zara-white bg-opacity-50'
+              index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

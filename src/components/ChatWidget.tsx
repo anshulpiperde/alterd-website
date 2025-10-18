@@ -100,7 +100,7 @@ const ChatWidget: React.FC = () => {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-zara-near-black text-zara-white px-4 py-3 shadow-lg hover:bg-zara-deep-gray focus:outline-none focus:ring-2 focus:ring-zara-near-black/40"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-dark-text text-dark-bg px-4 py-3 shadow-lg hover:bg-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-dark-text/40"
         aria-label="Open FAQ chat"
       >
         <MessageCircle size={18} />
@@ -109,22 +109,22 @@ const ChatWidget: React.FC = () => {
 
       {/* Panel */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-[60] w-[90vw] max-w-[380px] border border-zara-medium-gray bg-zara-white shadow-2xl overflow-hidden">
+        <div className="fixed bottom-24 right-6 z-[60] w-[90vw] max-w-[380px] border border-dark-border bg-dark-bg-elevated shadow-2xl overflow-hidden">
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-zara-light-gray border-b border-zara-medium-gray">
+          <div className="flex items-center justify-between px-4 py-3 bg-dark-bg-secondary border-b border-dark-border">
             <div className="flex items-center gap-2">
-              <div className="p-1.5 rounded-full bg-zara-near-black text-zara-white">
+              <div className="p-1.5 rounded-full bg-dark-text text-dark-bg">
                 <Bot size={16} />
               </div>
               <div>
-                <div className="text-sm font-semibold text-zara-near-black">Alterd Assistant</div>
-                <div className="text-xs text-zara-charcoal">Ask me about products, shipping, or returns</div>
+                <div className="text-sm font-semibold text-dark-text">Alterd Assistant</div>
+                <div className="text-xs text-dark-text-secondary">Ask me about products, shipping, or returns</div>
               </div>
             </div>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="p-2 rounded-full hover:bg-zara-medium-gray text-zara-near-black"
+              className="p-2 rounded-full hover:bg-dark-bg-hover text-dark-text"
               aria-label="Close chat"
             >
               <X size={18} />
@@ -138,8 +138,8 @@ const ChatWidget: React.FC = () => {
                 <div
                   className={
                     m.author === 'user'
-                      ? 'max-w-[80%] rounded-2xl bg-zara-near-black text-zara-white px-3 py-2 text-sm'
-                      : 'max-w-[80%] rounded-2xl bg-zara-light-gray text-zara-near-black px-3 py-2 text-sm'
+                      ? 'max-w-[80%] rounded-2xl bg-dark-text text-dark-bg px-3 py-2 text-sm'
+                      : 'max-w-[80%] rounded-2xl bg-dark-bg-secondary text-dark-text px-3 py-2 text-sm'
                   }
                 >
                   {m.text.split('\n').map((line, i) => (
@@ -154,13 +154,13 @@ const ChatWidget: React.FC = () => {
             {/* Quick suggestions when short thread */}
             {messages.length <= 2 && (
               <div className="pt-1">
-                <div className="text-xs text-zara-charcoal mb-2">Quick questions</div>
+                <div className="text-xs text-dark-text-secondary mb-2">Quick questions</div>
                 <div className="flex flex-wrap gap-2">
                   {topFAQs.slice(0, 4).map(f => (
                     <button
                       key={f.id}
                       onClick={() => handleSuggestionClick(f.question)}
-                      className="text-xs px-2.5 py-1.5 border border-zara-gray hover:bg-zara-light-gray text-zara-near-black"
+                      className="text-xs px-2.5 py-1.5 border border-dark-border-light hover:bg-dark-bg-hover text-dark-text"
                     >
                       {f.question}
                     </button>
@@ -171,7 +171,7 @@ const ChatWidget: React.FC = () => {
           </div>
 
           {/* Composer */}
-          <div className="border-t border-zara-medium-gray p-3">
+          <div className="border-t border-dark-border p-3">
             <div className="flex items-center gap-2">
               <input
                 value={input}
@@ -180,12 +180,12 @@ const ChatWidget: React.FC = () => {
                   if (e.key === 'Enter') handleSend();
                 }}
                 placeholder="Ask a question…"
-                className="flex-1 rounded-full border border-zara-gray px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-zara-near-black/30 text-zara-near-black placeholder:text-zara-dark-gray"
+                className="flex-1 rounded-full border border-dark-border-light bg-dark-bg-secondary px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-dark-text/30 text-dark-text placeholder:text-dark-text-muted"
               />
               <button
                 type="button"
                 onClick={handleSend}
-                className="p-2 rounded-full bg-zara-near-black text-zara-white hover:bg-zara-deep-gray disabled:opacity-50"
+                className="p-2 rounded-full bg-dark-text text-dark-bg hover:bg-dark-text-secondary disabled:opacity-50"
                 disabled={!input.trim()}
                 aria-label="Send"
               >

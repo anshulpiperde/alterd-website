@@ -14,10 +14,10 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCart }) =
 
   if (!product) {
     return (
-      <main className="bg-zara-off-white">
+      <main className="bg-dark-bg">
         <div className="max-w-[960px] mx-auto px-6 py-16 text-center">
-          <h1 className="text-2xl font-bold mb-2 text-zara-near-black">Product not found</h1>
-          <a href="#/" className="text-sm font-medium border-b border-zara-near-black text-zara-near-black">Go back home</a>
+          <h1 className="text-2xl font-bold mb-2 text-dark-text">Product not found</h1>
+          <a href="#/" className="text-sm font-medium border-b border-dark-text text-dark-text">Go back home</a>
         </div>
       </main>
     );
@@ -31,7 +31,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCart }) =
   };
 
   return (
-    <main className="bg-zara-off-white">
+    <main className="bg-dark-bg">
       <div className="max-w-[1280px] mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Images */}
         <div>
@@ -48,7 +48,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCart }) =
                 <button
                   key={idx}
                   onClick={() => setCurrentImage(idx)}
-                  className={`w-16 h-16 overflow-hidden ${currentImage === idx ? 'ring-2 ring-zara-near-black' : ''}`}
+                  className={`w-16 h-16 overflow-hidden ${currentImage === idx ? 'ring-2 ring-dark-text' : ''}`}
                 >
                   <img src={img} alt={`${product.title} ${idx + 1}`} className="w-full h-full object-cover" />
                 </button>
@@ -60,31 +60,25 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCart }) =
         {/* Details */}
         <div className="space-y-6">
           <div>
-            <h1 className="text-3xl font-bold mb-2 text-zara-near-black">{product.title}</h1>
-            {product.subtitle && <p className="text-zara-charcoal mb-4">{product.subtitle}</p>}
+            <h1 className="text-3xl font-bold mb-2 text-dark-text">{product.title}</h1>
+            {product.subtitle && <p className="text-dark-text-secondary mb-4">{product.subtitle}</p>}
             <div className="flex items-center space-x-2 mb-4">
-              <span className="text-2xl font-bold text-zara-near-black">${product.price.current}</span>
+              <span className="text-2xl font-bold text-dark-text">${product.price.current}</span>
               {product.price.original && (
-                <span className="text-lg text-zara-charcoal line-through">${product.price.original}</span>
+                <span className="text-lg text-dark-text-muted line-through">${product.price.original}</span>
               )}
             </div>
           </div>
 
           {/* Color */}
           <div>
-            <h3 className="font-medium mb-3 text-zara-near-black">
-              Color {selectedColor && <span className="font-normal text-zara-charcoal">- {selectedColor}</span>}
-            </h3>
+            <h3 className="font-medium mb-3 text-dark-text">Color</h3>
             <div className="flex space-x-2">
               {product.colors.map((color) => (
                 <button
                   key={color}
                   onClick={() => setSelectedColor(color)}
-                  className={`w-10 h-10 rounded-full border-2 transition-all ${
-                    selectedColor === color 
-                      ? 'border-zara-near-black ring-2 ring-zara-near-black ring-offset-2' 
-                      : 'border-zara-gray hover:border-zara-charcoal'
-                  } ${
+                  className={`w-8 h-8 rounded-full border-2 ${selectedColor === color ? 'border-dark-text' : 'border-dark-border-light'} ${
                     color === 'black' ? 'bg-gray-900' :
                     color === 'white' ? 'bg-white' :
                     color === 'navy' ? 'bg-blue-900' :
@@ -106,14 +100,14 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCart }) =
 
           {/* Size */}
           <div>
-            <h3 className="font-medium mb-3 text-zara-near-black">Size</h3>
+            <h3 className="font-medium mb-3 text-dark-text">Size</h3>
             <div className="grid grid-cols-4 gap-2">
               {product.sizes.map((size) => (
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
                   className={`py-2 text-sm font-medium border ${
-                    selectedSize === size ? 'border-zara-near-black bg-zara-near-black text-zara-white' : 'border-zara-gray hover:border-zara-charcoal text-zara-near-black'
+                    selectedSize === size ? 'border-dark-text bg-dark-text text-dark-bg' : 'border-dark-border-light hover:border-dark-text-secondary text-dark-text'
                   }`}
                 >
                   {size}
@@ -123,29 +117,22 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onAddToCart }) =
           </div>
 
           {/* Quantity and Add */}
-          <div className="space-y-3 pt-2">
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center border border-zara-gray">
-                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-2 text-zara-near-black hover:bg-zara-light-gray">-</button>
-                <span className="px-4 py-2 text-zara-near-black">{quantity}</span>
-                <button onClick={() => setQuantity(Math.min(10, quantity + 1))} className="px-3 py-2 text-zara-near-black hover:bg-zara-light-gray">+</button>
-              </div>
-              <button
-                onClick={handleAdd}
-                disabled={!selectedSize || !selectedColor}
-                className="flex-1 bg-zara-near-black text-zara-white py-3 font-semibold disabled:bg-zara-gray disabled:cursor-not-allowed hover:bg-zara-deep-gray transition-colors"
-              >
-                Add to Bag
-              </button>
+          <div className="flex items-center space-x-4 pt-2">
+            <div className="flex items-center border border-dark-border-light">
+              <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-2 text-dark-text hover:bg-dark-bg-hover">-</button>
+              <span className="px-4 py-2 text-dark-text">{quantity}</span>
+              <button onClick={() => setQuantity(Math.min(10, quantity + 1))} className="px-3 py-2 text-dark-text hover:bg-dark-bg-hover">+</button>
             </div>
-            {(!selectedSize || !selectedColor) && (
-              <p className="text-sm text-red-600">
-                Please select {!selectedColor && 'a color'}{!selectedColor && !selectedSize && ' and '}{!selectedSize && 'a size'}
-              </p>
-            )}
+            <button
+              onClick={handleAdd}
+              disabled={!selectedSize || !selectedColor}
+              className="flex-1 bg-dark-text text-dark-bg py-3 font-semibold disabled:bg-dark-border disabled:cursor-not-allowed hover:bg-dark-text-secondary transition-colors"
+            >
+              Add to Bag
+            </button>
           </div>
 
-          <p className="text-sm text-zara-charcoal pt-4">Category: {product.category}</p>
+          <p className="text-sm text-dark-text-secondary pt-4">Category: {product.category}</p>
         </div>
       </div>
     </main>

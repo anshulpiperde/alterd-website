@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, onAddTo
   return (
     <div className="group relative">
       <a href={`#/product/${product.id}`} className="block">
-        <div className="relative aspect-[3/4] bg-zara-light-gray overflow-hidden">
+        <div className="relative aspect-[3/4] bg-dark-bg-elevated overflow-hidden">
           {/* Product Image */}
           <img
             src={product.images[currentImage]}
@@ -39,10 +39,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, onAddTo
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col space-y-1">
             {product.isNew && (
-              <span className="bg-zara-near-black text-zara-white text-xs px-2 py-1">NEW</span>
+              <span className="bg-dark-text text-dark-bg text-xs px-2 py-1">NEW</span>
             )}
             {product.onSale && (
-              <span className="bg-zara-near-black text-zara-white text-xs px-2 py-1">SALE</span>
+              <span className="bg-dark-text text-dark-bg text-xs px-2 py-1">SALE</span>
             )}
           </div>
 
@@ -52,8 +52,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, onAddTo
               onClick={handleWishlist}
               className={`p-2 rounded-full backdrop-blur-sm transition-colors duration-200 ${
                 isWishlisted 
-                  ? 'bg-zara-near-black text-zara-white' 
-                  : 'bg-zara-white/80 hover:bg-zara-white text-zara-near-black'
+                  ? 'bg-dark-text text-dark-bg' 
+                  : 'bg-dark-bg-elevated/80 hover:bg-dark-bg-elevated text-dark-text border border-dark-border-light'
               }`}
               aria-label="Add to wishlist"
             >
@@ -61,7 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, onAddTo
             </button>
             <button
               onClick={handleQuickView}
-              className="p-2 bg-zara-white/80 hover:bg-zara-white text-zara-near-black rounded-full backdrop-blur-sm transition-colors duration-200"
+              className="p-2 bg-dark-bg-elevated/80 hover:bg-dark-bg-elevated text-dark-text border border-dark-border-light rounded-full backdrop-blur-sm transition-colors duration-200"
               aria-label="Quick view"
             >
               <Eye size={16} />
@@ -74,7 +74,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, onAddTo
               {product.colors.slice(0, 4).map((color, index) => (
                 <div
                   key={index}
-                  className={`w-4 h-4 rounded-full border-2 border-zara-white shadow-sm ${
+                  className={`w-4 h-4 rounded-full border-2 border-dark-text shadow-sm ${
                     color === 'black' ? 'bg-gray-900' :
                     color === 'white' ? 'bg-white' :
                     color === 'navy' ? 'bg-blue-900' :
@@ -96,18 +96,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, onAddTo
 
         {/* Product Info */}
         <div className="mt-4 space-y-1">
-          <h3 className="font-medium text-zara-near-black group-hover:text-zara-charcoal transition-colors duration-200">
+          <h3 className="font-medium text-dark-text group-hover:text-dark-text-secondary transition-colors duration-200">
             {product.title}
           </h3>
           {product.subtitle && (
-            <p className="text-sm text-zara-charcoal">{product.subtitle}</p>
+            <p className="text-sm text-dark-text-secondary">{product.subtitle}</p>
           )}
           <div className="flex items-center space-x-2">
-            <span className="font-semibold text-zara-near-black">
+            <span className="font-semibold text-dark-text">
               ${product.price.current}
             </span>
             {product.price.original && (
-              <span className="text-sm text-zara-charcoal line-through">
+              <span className="text-sm text-dark-text-muted line-through">
                 ${product.price.original}
               </span>
             )}
@@ -121,14 +121,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, onAddTo
                     className={`text-xs ${
                       i < Math.floor(product.rating!.average) 
                         ? 'text-yellow-400' 
-                        : 'text-zara-gray'
+                        : 'text-dark-border-light'
                     }`}
                   >
                     ★
                   </span>
                 ))}
               </div>
-              <span className="text-xs text-zara-charcoal">
+              <span className="text-xs text-dark-text-secondary">
                 ({product.rating.count})
               </span>
             </div>

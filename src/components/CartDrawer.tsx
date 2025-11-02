@@ -108,9 +108,13 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
                 <span className="font-semibold text-dark-text">Subtotal</span>
                 <span className="font-bold text-lg text-dark-text">${subtotal.toFixed(2)}</span>
               </div>
-              <button className="w-full bg-dark-text text-dark-bg py-3 font-semibold hover:bg-dark-text-secondary transition-colors duration-200">
+              <a
+                href="#/checkout"
+                onClick={onClose}
+                className="block w-full bg-dark-text text-dark-bg py-3 font-semibold hover:bg-dark-text-secondary transition-colors duration-200 text-center"
+              >
                 Checkout
-              </button>
+              </a>
               <a
                 href="#/cart"
                 onClick={onClose}

@@ -13,6 +13,7 @@ import NewArrivals from './pages/NewArrivals';
 import Trending from './pages/Trending';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 import { mockProducts } from './data/mockData';
 import { CartItem, Product } from './types';
 
@@ -69,6 +70,14 @@ function App() {
 
   const handleRemoveItem = (itemId: string) => {
     setCartItems(prev => prev.filter(item => item.id !== itemId));
+  };
+
+  const handlePaymentSuccess = () => {
+    // Clear cart after successful payment
+    setCartItems([]);
+    // Redirect to home page
+    window.location.hash = '/';
+    alert('Payment successful! Thank you for your order.');
   };
 
   const handleQuickView = (product: Product) => {
@@ -153,6 +162,13 @@ function App() {
             items={cartItems}
             onUpdateQuantity={handleUpdateQuantity}
             onRemoveItem={handleRemoveItem}
+          />
+        )}
+
+        {route === '/checkout' && (
+          <Checkout 
+            items={cartItems}
+            onPaymentSuccess={handlePaymentSuccess}
           />
         )}
 

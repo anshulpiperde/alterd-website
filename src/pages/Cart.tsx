@@ -88,9 +88,12 @@ const Cart: React.FC<CartPageProps> = ({ items, onUpdateQuantity, onRemoveItem }
                 <span>Shipping</span>
                 <span>Calculated at checkout</span>
               </div>
-              <button className="w-full bg-dark-text text-dark-bg py-3 font-semibold hover:bg-dark-text-secondary transition-colors duration-200">
+              <a 
+                href="#/checkout"
+                className="block w-full bg-dark-text text-dark-bg py-3 font-semibold hover:bg-dark-text-secondary transition-colors duration-200 text-center"
+              >
                 Checkout
-              </button>
+              </a>
               <a 
                 href="#/" 
                 className="block text-center mt-3 text-sm font-medium border-b border-dark-text hover:border-dark-text-secondary transition-colors duration-200 text-dark-text"
